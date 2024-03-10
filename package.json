@@ -4,7 +4,8 @@
   "description": "npm scripts workflow",
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint *.js"
+    "eslint": "eslint *.js",
+    "stylelint": "stylelint *.less"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,8 @@
   },
   "homepage": "https://github.com/hsulaosi/npm-scripts#readme",
   "devDependencies": {
-    "eslint": "^8.57.0"
+    "eslint": "^8.57.0",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard": "^36.0.0"
   }
 }
