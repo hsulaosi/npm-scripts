@@ -1,0 +1,23 @@
+{
+  "name": "npm-scripts",
+  "version": "1.0.0",
+  "description": "npm scripts workflow",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint *.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsulaosi/npm-scripts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hsulaosi/npm-scripts/issues"
+  },
+  "homepage": "https://github.com/hsulaosi/npm-scripts#readme",
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  }
+}
