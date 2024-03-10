@@ -6,7 +6,8 @@
   "scripts": {
     "eslint": "eslint *.js",
     "stylelint": "stylelint *.less",
-    "jsonlint": "jsonlint test.json"
+    "jsonlint": "jsonlint test.json",
+    "markdownlint": "markdownlint *.md"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "eslint": "^8.57.0",
     "jsonlint": "^1.6.3",
+    "markdownlint-cli": "^0.39.0",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0"
   }
