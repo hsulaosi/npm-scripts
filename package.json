@@ -1,0 +1,30 @@
+{
+  "name": "npm-scripts",
+  "version": "1.0.0",
+  "description": "npm scripts workflow",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint *.js",
+    "stylelint": "stylelint *.less",
+    "jsonlint": "jsonlint test.json",
+    "markdownlint": "markdownlint *.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsulaosi/npm-scripts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hsulaosi/npm-scripts/issues"
+  },
+  "homepage": "https://github.com/hsulaosi/npm-scripts#readme",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "jsonlint": "^1.6.3",
+    "markdownlint-cli": "^0.39.0",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard": "^36.0.0"
+  }
+}
