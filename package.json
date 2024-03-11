@@ -4,10 +4,10 @@
   "description": "npm scripts workflow",
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint *.js",
-    "stylelint": "stylelint *.less",
-    "jsonlint": "jsonlint test.json",
-    "markdownlint": "markdownlint *.md"
+    "lint:js": "eslint src/*.js",
+    "lint:style": "stylelint src/*.{less,css}",
+    "lint:json": "jsonlint --quiet src/*.json",
+    "lint:md": "markdownlint src/*.md"
   },
   "repository": {
     "type": "git",
