@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "lint:js": "eslint src/*.js",
+    "lint:js:fix": "npm run lint:js -- --fix",
     "lint:style": "stylelint src/*.{less,css}",
     "lint:json": "jsonlint --quiet src/*.json",
     "lint:md": "markdownlint src/*.md",
     "mocha": "mocha tests/",
     "test": "npm-run-all lint:* mocha",
-    "test:p": "npm-run-all --parallel lint:* mocha"
+    "test:p": "# 并行运行所有代码检查和单元测试 \n npm-run-all --parallel lint:* mocha"
   },
   "repository": {
     "type": "git",
