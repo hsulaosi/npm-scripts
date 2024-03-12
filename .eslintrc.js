@@ -22,6 +22,6 @@ module.exports = {
   rules: {
     "no-undef": "off",
     "no-unused-vars": "off",
-    quotes: [2], 
+    quotes: [2, "single"],
   },
 };
