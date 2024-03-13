@@ -9,9 +9,12 @@
     "lint:style": "stylelint src/*.{less,css}",
     "lint:json": "jsonlint --quiet src/*.json",
     "lint:md": "markdownlint src/*.md",
-    "mocha": "mocha tests/",
-    "test": "npm-run-all lint:* mocha",
-    "test:p": "# 并行运行所有代码检查和单元测试 \n npm-run-all --parallel lint:* mocha"
+    "lint": "npm-run-all --parallel lint:*",
+    "pretest": "# 测试前先进行代码校验 \n npm run lint",
+    "test": "mocha tests/",
+    "precover": "# 收集覆盖率之前把之前的覆盖率报告目录清理掉 \n rm -rf coverage",
+    "cover": "# 使用了nyc工具来运行npm test, 并生成覆盖率报告 \n nyc --reporter=html npm test",
+    "postcover": "# 清理掉临时文件，并且在浏览器中预览覆盖率报告 \n  rm -rf .nyc_output && open-cli coverage/index.html"
   },
   "repository": {
     "type": "git",
@@ -31,6 +34,8 @@
     "markdownlint-cli": "^0.39.0",
     "mocha": "^10.3.0",
     "npm-run-all": "^4.1.5",
+    "nyc": "^15.1.0",
+    "open-cli": "7.2.0",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0"
   }
