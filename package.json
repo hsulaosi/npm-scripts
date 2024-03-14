@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "npm scripts workflow",
   "main": "index.js",
+  "config": {
+    "port": 9527
+  },
   "scripts": {
     "lint:js": "eslint src/*.js",
     "lint:js:fix": "npm run lint:js -- --fix",
@@ -12,9 +15,12 @@
     "lint": "npm-run-all --parallel lint:*",
     "pretest": "# 测试前先进行代码校验 \n npm run lint",
     "test": "mocha tests/",
-    "precover": "# 收集覆盖率之前把之前的覆盖率报告目录清理掉 \n rm -rf coverage",
     "cover": "# 使用了nyc工具来运行npm test, 并生成覆盖率报告 \n nyc --reporter=html npm test",
-    "postcover": "# 清理掉临时文件，并且在浏览器中预览覆盖率报告 \n  rm -rf .nyc_output && open-cli coverage/index.html"
+    "cover:cleanup": "# 清理本次覆盖率报告文件 \n rm -rf coverage && rm -rf .nyc_output",
+    "cover:archive": "# 创建 coverage_archive\/版本号目录，并将coverage目录的报告目录里的文件拷贝到其中 \n mkdir -p coverage_archive/$npm_package_version && cp -r coverage/* coverage_archive/$npm_package_version",
+    "cover:serve": "# 启动http服务，端口为自定义端口 \n http-server coverage_archive/$npm_package_version -p $npm_package_config_port",
+    "cover:open": "open-cli http://localhost:$npm_package_config_port",
+    "postcover": "npm-run-all cover:archive cover:cleanup --parallel cover:serve cover:open"
   },
   "repository": {
     "type": "git",
@@ -30,6 +36,7 @@
   "devDependencies": {
     "chai": "4.3.10",
     "eslint": "^8.57.0",
+    "http-server": "^14.1.1",
     "jsonlint": "^1.6.3",
     "markdownlint-cli": "^0.39.0",
     "mocha": "^10.3.0",
