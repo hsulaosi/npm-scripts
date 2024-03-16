@@ -16,9 +16,9 @@
     "pretest": "# 测试前先进行代码校验 \n npm run lint",
     "test": "cross-env NODE_ENV=test mocha tests/",
     "cover": "# 使用了nyc工具来运行npm test, 并生成覆盖率报告 \n nyc --reporter=html npm test",
-    "cover:cleanup": "# 清理本次覆盖率报告文件 \n rm -rf coverage && rm -rf .nyc_output",
-    "cover:archive": "# 创建 coverage_archive/版本号目录，并将coverage目录的报告目录里的文件拷贝到其中 \n cross-env mkdir -p coverage_archive/$npm_package_version && cp -r coverage/* coverage_archive/$npm_package_version",
-    "cover:serve": "# 启动http服务，端口为自定义端口 \n cross-var http-server coverage_archive/$npm_package_version -p $npm_package_config_port",
+    "cover:cleanup": "rimraf coverage && rimraf .nyc_output",
+    "cover:archive": "cross-var \"make-dir coverage_archive/$npm_package_version && cpr coverage/* coverage_archive/$npm_package_version -o\"",
+    "cover:serve": "cross-var http-server coverage_archive/$npm_package_version -p $npm_package_config_port",
     "cover:open": "cross-var open-cli http://localhost:$npm_package_config_port",
     "postcover": "npm-run-all cover:archive cover:cleanup --parallel cover:serve cover:open"
   },
@@ -35,16 +35,19 @@
   "homepage": "https://github.com/hsulaosi/npm-scripts#readme",
   "devDependencies": {
     "chai": "4.3.10",
+    "cpr": "^3.0.1",
     "cross-env": "^7.0.3",
     "cross-var": "^1.1.0",
     "eslint": "^8.57.0",
     "http-server": "^14.1.1",
     "jsonlint": "^1.6.3",
+    "make-dir-cli": "^3.1.0",
     "markdownlint-cli": "^0.39.0",
     "mocha": "^10.3.0",
     "npm-run-all": "^4.1.5",
     "nyc": "^15.1.0",
     "open-cli": "7.2.0",
+    "rimraf": "^5.0.5",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0"
   }
