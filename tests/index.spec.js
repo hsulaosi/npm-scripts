@@ -10,6 +10,7 @@ describe("unit-test", () => {
     it("should return NaN when param is invalid", () => {
       expect(isNaN(add(0, undefined))).to.equal(true);
       expect(isNaN(add(null, undefined))).to.equal(true);
+      expect(isNaN(add(true, false))).to.equal(true);
       expect(isNaN(add(0, 10))).to.equal(false);
     });
   });
