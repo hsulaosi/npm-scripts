@@ -15,13 +15,9 @@
     "lint": "npm-run-all --parallel lint:*",
     "pretest": "npm run lint",
     "test": "cross-env NODE_ENV=test mocha tests/",
-    "cover": "nyc --reporter=html npm test",
-    "cover:cleanup": "rimraf coverage && rimraf .nyc_output",
-    "cover:archive": "cross-var \"make-dir coverage_archive/$npm_package_version && cpr coverage/* coverage_archive/$npm_package_version -o\"",
-    "cover:serve": "cross-var http-server coverage_archive/$npm_package_version -p $npm_package_config_port",
-    "cover:open": "cross-var open-cli http://localhost:$npm_package_config_port",
-    "precover": "npm run cover:cleanup",
-    "postcover": "npm-run-all cover:archive --parallel cover:serve cover:open"
+    "cover": "scripty",
+    "cover:serve": "scripty",
+    "cover:open": "scripty"
   },
   "repository": {
     "type": "git",
@@ -49,6 +45,7 @@
     "nyc": "^15.1.0",
     "open-cli": "7.2.0",
     "rimraf": "^5.0.5",
+    "scripty": "^2.1.1",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0"
   }
