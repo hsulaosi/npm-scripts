@@ -11,7 +11,7 @@
     "lint:js:fix": "npm run lint:js -- --fix",
     "lint:style": "stylelint src/*.{less,css}",
     "lint:json": "jsonlint --quiet src/*.json",
-    "lint:md": "markdownlint src/*.md",
+    "lint:md": "jsonlint src/*.md",
     "lint": "npm-run-all --parallel lint:*",
     "test": "cross-env NODE_ENV=test mocha tests/",
     "cover": "scripty",
@@ -27,6 +27,12 @@
     "client:reload-server": "livereload client/ --debug",
     "client:static-server": "http-server client/",
     "prepare": "husky"
+  },
+  "lint-staged": {
+    "src/*.js": "eslint",
+    "src/*.{less,css}": "stylelint",
+    "src/*.json": "jsonlint",
+    "src/*.md": "jsonlint"
   },
   "repository": {
     "type": "git",
