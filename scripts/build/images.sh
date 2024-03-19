@@ -1,0 +1,1 @@
+imagemin app/images/* --out-dir=dist/images
