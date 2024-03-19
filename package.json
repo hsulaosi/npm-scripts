@@ -26,7 +26,9 @@
     "client": "npm-run-all --parallel client:*",
     "client:reload-server": "livereload client/ --debug",
     "client:static-server": "http-server client/",
-    "prepare": "husky"
+    "prepare": "husky",
+    "app:start": "http-server app/",
+    "prebuild": "rm -rf dist && mkdir -p dist/{images,styles,scripts}"
   },
   "lint-staged": {
     "src/*.js": "eslint",
