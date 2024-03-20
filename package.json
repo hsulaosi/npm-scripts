@@ -32,7 +32,8 @@
     "build:images": "scripty",
     "build:styles": "scripty",
     "build:scripts": "scripty",
-    "build:hash": "scripty"
+    "build:hash": "scripty",
+    "release:patch": "npm version patch && git push && git push --tags"
   },
   "lint-staged": {
     "src/*.js": "eslint",
